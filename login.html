@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | Injira</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>🛒 Isoko<span>Ryawe</span></h2>
+      <p>Injira usure isoko cyangwa ucunge umusaruro wawe</p>
+      
+      <form id="loginForm" novalidate>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="logEmail" required placeholder="izina@gmail.com">
+          <small class="field-error" id="logEmailError" aria-live="polite"></small>
+        </div>
+        <div class="input-group">
+          <label>Ijambo ry'ibanga</label>
+          <input type="password" id="logPassword" required minlength="6" placeholder="********">
+          <small class="field-error" id="logPasswordError" aria-live="polite"></small>
+        </div>
+        <button type="submit" class="btn-login">Injira Muri Konti</button>
+      </form>
+      
+      <p class="switch-form">Ntarufite konti? <a href="register.html">Iyandikishe hano</a></p>
+      <p class="back-home"><a href="index.html">← Subira ahabanza</a></p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

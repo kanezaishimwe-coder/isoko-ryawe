@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | Umusaruro wawe, Isoko ryawe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🛒 Isoko<span>Ryawe</span></div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active" id="lnk-home">Ahabanza</a>
+      <a href="market.html" id="lnk-market">Sura Isoko</a>
+      <a href="about.html" id="lnk-about" class="btn-about-nav">About Us</a>
+      <a href="login.html" class="btn-login-nav" id="lnk-login">Injira</a>
+    </nav>
+
+    <div class="lang-selector">
+      <select id="languageSelect" onchange="switchLanguage(this.value)">
+        <option value="rw">Kinyarwanda</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="sw">Kiswahili</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <h2 id="cat-title">Ibyiciro by'Umusaruro</h2>
+    <div class="categories-grid">
+      <div class="cat-card">
+      <img src="js/assets/dodo.png">
+        <h3 id="cat-farming">Ibiribwa n'Imboga</h3>
+      </div>
+      <div class="cat-card">
+        <img src="js/assets/amagi.png">
+        <h3 id="cat-livestock">Amatungo</h3>
+      </div>
+      <div class="cat-card">
+        <img src="js/assets/avoka.png">
+        <h3 id="cat-fruits">Imbuto Zitoshye</h3>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
+  </footer>
+
+  <script src="js/language.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

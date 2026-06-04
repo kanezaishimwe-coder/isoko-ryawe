@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | Umwirondoro</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🛒 Isoko<span>Ryawe</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Ahabanza</a>
+      <a href="market.html">Isoko</a>
+      <a href="about.html" class="btn-about-nav">About Us</a>
+      <a href="profile.html" class="active">Umwirondoro</a>
+    </nav>
+  </header>
+
+  <main class="profile-container">
+    <div class="profile-card">
+      <div class="avatar-placeholder">🧑‍🌾</div>
+      <h2 id="profName">-</h2>
+      <p id="profEmail">-</p>
+      <p id="profPhone" style="margin-bottom: 15px; font-weight: 500;">-</p>
+      <span class="badge" id="profRole">-</span>
+      <hr>
+      <button onclick="logoutUser()" class="btn-logout">Sohoka muri Konti</button>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const user = JSON.parse(localStorage.getItem("currentUser"));
+        if(user) {
+            document.getElementById("profName").innerText = user.name;
+            document.getElementById("profEmail").innerText = user.email;
+            document.getElementById("profPhone").innerText = "WhatsApp/Tel: " + user.phone;
+            document.getElementById("profRole").innerText = user.role === 'producer' ? 'Producer (Umuhinzi/Umworozi)' : 'Client (Umuguzi)';
+        } else {
+            window.location.href = "login.html";
+        }
+    });
+
+    function logoutUser() {
+        localStorage.removeItem("currentUser");
+        alert("Muvuye muri system.");
+        window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

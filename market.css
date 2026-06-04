@@ -1,0 +1,223 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #f1f7ef 0%, #ffffff 100%);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(26,26,26,0.95);
+  padding: 16px 5%;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: #ffb300;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-about-nav {
+  background-color: #2e7d32;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+.btn-about-nav:hover {
+  background-color: #1b5e20;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+  background-color: rgba(255,179,0,0.18);
+  color: #ffb300;
+}
+
+.market-main {
+  max-width: 1200px;
+  margin: 25px auto 40px;
+  padding: 0 20px;
+}
+
+.market-hero {
+  background-image: linear-gradient(135deg, rgba(46,125,50,0.88), rgba(255,179,0,0.78)), url("https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=1600&q=80");
+  border-radius: 28px;
+  padding: 30px 28px;
+  color: white;
+  margin-bottom: 28px;
+  box-shadow: 0 18px 40px rgba(14,30,18,0.12);
+}
+
+.market-hero h2 {
+  font-size: clamp(2rem, 2.7vw, 2.6rem);
+  margin-bottom: 12px;
+}
+
+.market-hero p {
+  font-size: 1rem;
+  line-height: 1.75;
+  opacity: 0.95;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.filter-chip {
+  background: rgba(255,255,255,0.18);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.28);
+  cursor: default;
+  transition: transform 0.2s ease;
+}
+
+.filter-chip:hover {
+  transform: translateY(-2px);
+}
+
+.search-section {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.search-section h2 {
+  color: #1b5e20;
+  margin-bottom: 14px;
+  font-size: 2rem;
+}
+
+.search-section input {
+  width: 100%;
+  max-width: 680px;
+  padding: 16px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 999px;
+  outline: none;
+  box-shadow: 0 15px 35px rgba(46,125,50,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-section input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 45px rgba(46,125,50,0.14);
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.product-item {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbf6 100%);
+  border-radius: 24px;
+  box-shadow: 0 18px 35px rgba(14,30,18,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  border: 1px solid rgba(46,125,50,0.12);
+}
+
+.product-item:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 40px rgba(14,30,18,0.14);
+}
+
+.product-item .product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-item h3 {
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.product-item .product-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.product-item .meta-pill {
+  background: rgba(46,125,50,0.1);
+  color: #2e7d32;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.product-item .qty {
+  color: #4f5c4d;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.btn-view {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb300;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-view:hover {
+  background-color: #e6a100;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .market-hero {
+    padding: 26px 20px;
+  }
+}
+

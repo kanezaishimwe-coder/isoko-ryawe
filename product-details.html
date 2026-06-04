@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | Birambuye</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: radial-gradient(circle at top left, #fef7e7, #f4f6f4 45%); padding: 40px; color: #1a1a1a; }
+    .details-card { background: white; max-width: 700px; margin: 40px auto; padding: 32px; border-radius: 24px; box-shadow: 0 26px 60px rgba(14,30,18,0.12); border-top: 8px solid #2e7d32; }
+    .product-image { width: 100%; height: 320px; object-fit: cover; border-radius: 20px; margin-bottom: 24px; }
+    h1 { color: #2e7d32; margin-bottom: 18px; font-size: 2.4rem; }
+    p { font-size: 17px; margin-bottom: 16px; color: #444; line-height: 1.75; }
+    span.highlight { color: #2e7d32; font-weight: bold; }
+    .contact-box { margin-top: 28px; padding: 22px; background-color: #e8f5e9; border-radius: 18px; display: flex; flex-direction: column; gap: 12px; }
+    .btn-action { display: block; text-align: center; padding: 14px; border-radius: 16px; font-weight: bold; text-decoration: none; transition: 0.3s; }
+    .btn-wa { background-color: #25d366; color: white; }
+    .btn-wa:hover { background-color: #1ebd56; }
+    .btn-call { background-color: #1a1a1a; color: white; }
+    .btn-call:hover { background-color: #333; }
+    .btn-back { display: inline-block; margin-top: 24px; color: #2e7d32; text-decoration: none; font-weight: bold; }
+    @media (max-width: 700px) { body { padding: 20px; } .details-card { padding: 24px; } }
+  </style>
+</head>
+<body>
+  <div class="details-card">
+    <img id="detImage" class="product-image" src="js/assets/umuceri.png" alt="Ifoto ya product" />
+    <h1 id="detName">-</h1>
+    <p><strong>Igiciro:</strong> <span id="detPrice" class="highlight">-</span> RWF</p>
+    <p><strong>Ingano Ihari:</strong> <span id="detQty">-</span></p>
+    <p><strong>Akarere/Aho Biherereye:</strong> <span id="detLoc">-</span></p>
+    <p><strong>Uko product yitaweho / Umwihariko:</strong> <span id="detCare">Ihinganywe ifumbire y'imborera kandi isaruye mu buryo bw'umwimerere.</span></p>
+    
+    <div class="contact-box">
+      <h3>Vugana n'Umuhinzi Ako Kanya:</h3>
+      <a href="#" id="waLink" target="_blank" class="btn-action btn-wa">💬 Chat na we kuri WhatsApp</a>
+      <a href="#" id="callLink" class="btn-action btn-call">📞 Hamagara Terefone</a>
+    </div>
+    
+    <a href="market.html" class="btn-back">← Subira ku Isoko</a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+        
+        const defaultProducts = [
+          { id: 1, name: "🥔 Ibirayi by'Ikinigi", price: 450, qty: "500 Kg", location: "Musanze", phone: "0788123456" },
+          { id: 2, name: "🥛 Amata Inyange", price: 700, qty: "200 Liters", location: "Nyagatare", phone: "0788654321" },
+          { id: 3, name: "🍅 Inyanya Nshya", price: 600, qty: "120 Kg", location: "Rwamagana", phone: "0785111222" },
+          { id: 4, name: "🍌 Imineke Kamparampaka", price: 350, qty: "400 Kg", location: "Rubavu", phone: "0783444555" }
+        ];
+        
+        const customProducts = JSON.parse(localStorage.getItem("farmProducts")) || [];
+        const allProducts = [...defaultProducts, ...customProducts];
+        const prod = allProducts.find(p => p.id === id) || defaultProducts[0];
+
+        function getImageFromName(name) {
+          const n = (name || "").toLowerCase();
+          if (n.includes("amagi")) return "js/assets/amagi.png";
+          if (n.includes("amata")) return "js/assets/amata.png";
+          if (n.includes("inyanya")) return "js/assets/inyanya.png";
+          if (n.includes("imineke")) return "js/assets/imineke.png";
+          if (n.includes("dodo")) return "js/assets/dodo.png";
+          if (n.includes("avoka")) return "js/assets/avoka.png";
+          if (n.includes("umuceri")) return "js/assets/umuceri.png";
+          if (n.includes("ibirayi")) return "js/assets/umuceri.png";
+          return "js/assets/umuceri.png";
+        }
+
+        document.getElementById("detName").innerText = prod.name;
+        document.getElementById("detPrice").innerText = prod.price;
+        document.getElementById("detQty").innerText = prod.qty;
+        document.getElementById("detLoc").innerText = prod.location;
+        if (prod.care) document.getElementById("detCare").innerText = prod.care;
+
+        const detImage = document.getElementById("detImage");
+        if (detImage) {
+          detImage.src = prod.image || getImageFromName(prod.name);
+        }
+
+        
+        // WhatsApp & Call links setup
+        const cleanPhone = prod.phone.replace(/[^0-9]/g, "");
+        const rwPhone = cleanPhone.startsWith("07") ? "250" + cleanPhone.substr(1) : cleanPhone;
+        
+        document.getElementById("waLink").href = `https://wa.me/${rwPhone}?text=Muraho,%20nshaka%20kugura%20${encodeURIComponent(prod.name)}%20twabonye%20kuri%20IsokoRyawe.`;
+        document.getElementById("callLink").href = `tel:${prod.phone}`;
+    });
+  </script>
+</body>
+</html>

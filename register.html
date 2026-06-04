@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | Fungura Konti</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-card">
+      <h2>🛒 Isoko<span>Ryawe</span></h2>
+      <p>Fungura konti utangire gushyiraho umusaruro cyangwa kugura</p>
+      
+      <form id="registerForm" novalidate>
+        <div class="input-group">
+          <label>Izina Ryose</label>
+          <input type="text" id="regName" required minlength="2" placeholder="Keza Marie">
+          <small class="field-error" id="regNameError" aria-live="polite"></small>
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" required placeholder="izina@gmail.com">
+          <small class="field-error" id="regEmailError" aria-live="polite"></small>
+        </div>
+        <div class="input-group">
+          <label>Inomero ya Terefone (Kuri WhatsApp)</label>
+          <input type="tel" id="regPhone" required placeholder="0788000000" pattern="^0?7\d{8}$" title="Shyiramo numero itangirira kuri 07 ifite imibare 10 (urugero 0788000000)" >
+          <small class="field-error" id="regPhoneError" aria-live="polite"></small>
+        </div>
+        <div class="input-group">
+          <label>Emeza Icyo Uri Cyo</label>
+          <select id="regRole" required>
+            <option value="producer">Ndi Umuhinzi / Umworozi (Producer)</option>
+            <option value="client">Ndi Umuguzi (Client)</option>
+          </select>
+          <small class="field-error" id="regRoleError" aria-live="polite"></small>
+        </div>
+        <div class="input-group">
+          <label>Ijambo ry'ibanga</label>
+          <input type="password" id="regPassword" required minlength="6" placeholder="********">
+          <small class="field-error" id="regPasswordError" aria-live="polite"></small>
+        </div>
+        <button type="submit" class="btn-register">Yandikisha Konti</button>
+      </form>
+      
+      <p class="switch-form">Ufite konti tayari? <a href="login.html">Injira hano</a></p>
+      <p class="back-home"><a href="index.html">← Subira ahabanza</a></p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

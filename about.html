@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">🛒 Isoko<span>Ryawe</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Ahabanza</a>
+      <a href="market.html">Sura Isoko</a>
+      <a href="about.html" class="active btn-about-nav">About Us</a>
+      <a href="login.html" class="btn-login-nav">Injira</a>
+    </nav>
+    <div class="lang-selector">
+      <select id="languageSelect" onchange="switchLanguage(this.value)">
+        <option value="rw">Kinyarwanda</option>
+        <option value="en" selected>English</option>
+        <option value="fr">Français</option>
+        <option value="sw">Kiswahili</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="hero-section">
+    <div class="hero-content">
+      <h1>Your Harvest, Your Market</h1>
+      <p>Connecting rural farmers and livestock breeders directly to buyers. Buy fresh products, call them, or chat via WhatsApp with no middlemen.</p>
+
+      <div class="cta-buttons">
+        <a href="register.html" class="btn-cta-main">Get Registered Now</a>
+        <a href="market.html" class="btn-cta-sub">Browse Marketplace</a>
+      </div>
+
+      <div class="hero-highlights">
+        <div class="highlight-card">
+          <h3>Easy Visibility for Sellers</h3>
+          <p>Your produce reaches buyers smoothly thanks to a professional and easy platform.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Trusted Produce</h3>
+          <p>Buyers can discover reliable, local produce from nearby regions.</p>
+        </div>
+        <div class="highlight-card">
+          <h3>Order & Deliver</h3>
+          <p>Your listings include clear identity and quality info so buyers can trust what they buy.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="categories-section">
+    <h2>About IsokoRyawe</h2>
+    <p style="max-width:900px;margin:18px auto;color:#1a1a1a;line-height:1.7;padding:0 20px;">IsokoRyawe connects smallholder farmers and livestock keepers directly with buyers across Rwanda. We remove unnecessary middlemen, provide a simple listing workflow, and enable communication over WhatsApp so producers can sell fresh and trusted produce to local communities.</p>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
+  </footer>
+
+  <script src="js/language.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

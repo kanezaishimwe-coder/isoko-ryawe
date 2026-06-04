@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top left, rgba(254,247,231,0.88), rgba(239,245,238,0.88) 30%, rgba(246,250,247,0.88) 100%),
+              url("js/assets/bg-image.png") center/cover fixed no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.register-card {
+  background: rgba(255,255,255,0.98);
+  padding: 44px 34px;
+  border-radius: 28px;
+  box-shadow: 0 26px 55px rgba(20,50,20,0.12);
+  text-align: center;
+  border: 1px solid rgba(46,125,50,0.14);
+}
+
+.register-card h2 {
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.register-card h2 span {
+  color: #2e7d32;
+}
+
+.register-card p {
+  color: #5f695f;
+  font-size: 1rem;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid rgba(34,34,34,0.14);
+  border-radius: 16px;
+  outline: none;
+  background: #fbfcfb;
+  font-size: 0.97rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 4px rgba(46,125,50,0.08);
+}
+
+.btn-register {
+  width: 100%;
+  padding: 15px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  margin-top: 10px;
+}
+
+.btn-register:hover {
+  background-color: #1b5e20;
+  transform: translateY(-1px);
+}
+
+.switch-form,
+.back-home {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: #505a50;
+}
+
+.switch-form a,
+.back-home a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back-home {
+  margin-top: 10px;
+}

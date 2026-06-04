@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsokoRyawe | Dashboard y'Umuhinzi</title>
+  <link rel="stylesheet" href="producer-dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>🧑‍🌾 Umuhinzi Panel</h2>
+      <ul>
+        <li><a href="#" class="active">Dashboard</a></li>
+        <li><a href="market.html">Sura Isoko</a></li>
+        <li><a href="profile.html">Umwirondoro</a></li>
+        <li><a href="#" id="btnLogout">Sohokamo</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Murakaza neza, <span id="farmerName">Umuhinzi</span>! 👋</h1>
+        <p>Hano ushobora gushyiraho umusaruro mushya, gukurikirana neza ibyo wamaze kwinjiza, no kumenyekanisha ibicuruzwa byawe ku isoko.</p>
+      </div>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3 id="cardTotal">0</h3>
+          <p>Ibicuruzwa byose byinjijwe</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="cardRegions">0</h3>
+          <p>Akarere bitangiriyeho</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="cardLatest">-</h3>
+          <p>Umusaruro wa vuba wagurishijwe</p>
+        </div>
+      </section>
+
+      <section class="products-list-section">
+        <h2>Umusaruro Waherutse Kwinjiza</h2>
+        <div class="farmer-products" id="farmerProductsList">
+          <div class="product-card empty-state">Nta musaruro watanzwe kugeza ubu. Tegereza wubake isoko!</div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>Ongeraho Umusaruro Mushya</h2>
+        <form id="addProductForm" novalidate>
+          <div class="form-group">
+            <label>Izina ry'Ikihingwa cyangwa Igicuruzwa:</label>
+            <input type="text" id="prodName" required placeholder="Ugereranyije: Imineke, Ibishyimbo, Amata">
+            <small class="field-error" id="prodNameError" aria-live="polite"></small>
+          </div>
+          <div class="form-group">
+            <label>Igiciro (RWF ku Kilo / Litre):</label>
+            <input type="number" id="prodPrice" required placeholder="500" min="1">
+            <small class="field-error" id="prodPriceError" aria-live="polite"></small>
+          </div>
+          <div class="form-group">
+            <label>Ingano Zihari mu Biro / Litre (Muburyo bw'Imibare n'Ikimenyetso):</label>
+            <input type="text" id="prodQty" required placeholder="Ugereranyije: 250 Kg">
+            <small class="field-error" id="prodQtyError" aria-live="polite"></small>
+          </div>
+          <div class="form-group">
+            <label>Akarere uherereyemo mu Rwanda:</label>
+            <input type="text" id="prodLocation" required placeholder="Ugereranyije: Musanze, Rwamagana">
+            <small class="field-error" id="prodLocationError" aria-live="polite"></small>
+          </div>
+          <div class="form-group">
+            <label>Uko product yitaweho (Care / Custom parameters):</label>
+            <input type="text" id="prodCare" required placeholder="Ugereranyije: Ifumbire y'imborera gusa, organic">
+            <small class="field-error" id="prodCareError" aria-live="polite"></small>
+          </div>
+          <button type="submit" class="btn-submit">Emeza Umusaruro ku Isoko</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/producer-dashboard.js"></script>
+</body>
+</html>
