@@ -239,6 +239,72 @@ body::before {
   gap: 26px;
 }
 
+.home-feature-section,
+.home-process-section {
+  padding: 70px 6%;
+  text-align: center;
+}
+
+.home-feature-section h2,
+.home-process-section h2 {
+  color: #1b5e20;
+  font-size: clamp(2rem, 2.7vw, 2.8rem);
+  margin-bottom: 28px;
+}
+
+.feature-grid,
+.process-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.feature-card,
+.process-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 18px 40px rgba(14, 30, 18, 0.08);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+  text-align: left;
+}
+
+.feature-card h3,
+.process-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: #1a1a1a;
+}
+
+.feature-card p,
+.process-card p {
+  line-height: 1.75;
+  color: #4f4f4f;
+}
+
+.process-card {
+  position: relative;
+}
+
+.process-card .step {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.process-card h3 {
+  margin-top: 0;
+  padding-top: 10px;
+}
+
 .cat-card {
   background: linear-gradient(180deg, #ffffff 0%, #f6f8f4 100%);
   padding: 28px 24px;

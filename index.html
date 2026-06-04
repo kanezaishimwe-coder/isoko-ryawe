@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IsokoRyawe | Umusaruro wawe, Isoko ryawe</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site-theme.css">
 </head>
 <body>
 
@@ -13,10 +14,11 @@
     <div class="logo">🛒 Isoko<span>Ryawe</span></div>
 
     <nav class="nav-links">
-      <a href="index.html" class="active" id="lnk-home">Ahabanza</a>
-      <a href="market.html" id="lnk-market">Sura Isoko</a>
-      <a href="about.html" id="lnk-about" class="btn-about-nav">About Us</a>
-      <a href="login.html" class="btn-login-nav" id="lnk-login">Injira</a>
+      <a href="index.html" class="active" id="lnk-home" data-i18n="nav.home">🏠 Ahabanza</a>
+      <a href="market.html" id="lnk-market" data-i18n="nav.market">🛒 Sura Isoko</a>
+      <a href="about.html" id="lnk-about" class="btn-about-nav" data-i18n="nav.about">ℹ️ About Us</a>
+      <a href="login.html" class="btn-login-nav" id="lnk-login" data-i18n="nav.login">🔐 Injira</a>
+
     </nav>
 
     <div class="lang-selector">
@@ -35,21 +37,77 @@
     <div class="categories-grid">
       <div class="cat-card">
       <img src="js/assets/dodo.png">
-        <h3 id="cat-farming">Ibiribwa n'Imboga</h3>
+        <h3 id="cat-farming">🥬 Ibiribwa n'Imboga</h3>
       </div>
       <div class="cat-card">
         <img src="js/assets/amagi.png">
-        <h3 id="cat-livestock">Amatungo</h3>
+        <h3 id="cat-livestock">🐓 Ibituruka-kumtungo</h3>
       </div>
       <div class="cat-card">
         <img src="js/assets/avoka.png">
-        <h3 id="cat-fruits">Imbuto Zitoshye</h3>
+        <h3 id="cat-fruits">🍎 Imbuto Zitoshye</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-feature-section">
+    <h2>Impamvu guhitamo IsokoRyawe</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>⚡ Byoroshye kandi bwihuse</h3>
+        <p>Ongeramo umusaruro wawe mu masaha make, kandi abaguzi bazawubona mu buryo bwihuta.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🤝 Nta bakomiseri</h3>
+        <p>Ucuruza neza ku buryo butaziguye, uhitemo uburyo bwo kuvugana kuri WhatsApp cyangwa guhamagara.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🛡️ Amakuru yizewe</h3>
+        <p>Abaguzi babona ibisobanuro birambuye ku musaruro, aho uherereye, ndetse n'amafoto yizewe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-process-section">
+    <h2>Uko bikorwa</h2>
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="step">1</span>
+        <h3>✍️ Iyandikishe</h3>
+        <p>Fungura konti yawe mu buryo bwihuse kandi butekanye kugira ngo utangire kwerekana ibikorwa byawe.</p>
+      </div>
+      <div class="process-card">
+        <span class="step">2</span>
+        <h3>📦 Tangira gusangiza</h3>
+        <p>Shyiraho ibicuruzwa byawe, amafoto y'ubwiza, ibiciro n'ubusobanuro bwuzuye.</p>
+      </div>
+      <div class="process-card">
+        <span class="step">3</span>
+        <h3>💬 Vugana n'abaguzi</h3>
+        <p>Abaguzi bashobora kukuvugisha kuri WhatsApp cyangwa kukuhamagara kugirango muzungurane amakuru y'ibicuruzwa.</p>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🛒 IsokoRyawe</h3>
+        <p>Guhuza abahinzi, abaguzi, n'abacunga sisitemu mu buryo bworoshye.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html"><span class="ui-icon" data-icon="home"></span> Ahabanza</a>
+        <a href="market.html"><span class="ui-icon" data-icon="market"></span> Isoko</a>
+        <a href="about.html"><span class="ui-icon" data-icon="info"></span> About Us</a>
+        <a href="login.html"><span class="ui-icon" data-icon="login"></span> Injira</a>
+      </nav>
+      <div class="footer-contact">
+        <h4><span class="ui-icon" data-icon="mail"></span> Contact</h4>
+        <a href="mailto:kanezaishi@gmail.com"><span class="ui-icon" data-icon="mail"></span> kanezaishi@gmail.com</a>
+        <p>Ushaka chat cyangwa ubufasha, twohereze email.</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
   </footer>
 
   <script src="js/language.js"></script>

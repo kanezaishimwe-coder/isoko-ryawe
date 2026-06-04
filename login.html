@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IsokoRyawe | Injira</title>
   <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="site-theme.css">
 </head>
 <body>
   <div class="login-container">
     <div class="login-card">
-      <h2>🛒 Isoko<span>Ryawe</span></h2>
+      <h2>🔐 Isoko<span>Ryawe</span></h2>
       <p>Injira usure isoko cyangwa ucunge umusaruro wawe</p>
-      
+
       <form id="loginForm" novalidate>
         <div class="input-group">
           <label>Email</label>
@@ -23,14 +24,36 @@
           <input type="password" id="logPassword" required minlength="6" placeholder="********">
           <small class="field-error" id="logPasswordError" aria-live="polite"></small>
         </div>
-        <button type="submit" class="btn-login">Injira Muri Konti</button>
+        <button type="submit" class="btn-login">🚪 Injira Muri Konti</button>
       </form>
-      
-      <p class="switch-form">Ntarufite konti? <a href="register.html">Iyandikishe hano</a></p>
-      <p class="back-home"><a href="index.html">← Subira ahabanza</a></p>
+
+      <p class="switch-form">Ntarufite konti? <a href="register.html">📝 Iyandikishe hano</a></p>
+      <p class="back-home"><a href="index.html">⬅️ Subira ahabanza</a></p>
     </div>
   </div>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🛒 IsokoRyawe</h3>
+        <p>Guhuza abahinzi, abaguzi, n'abacunga sisitemu mu buryo bworoshye.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html"><span class="ui-icon" data-icon="home"></span> Ahabanza</a>
+        <a href="market.html"><span class="ui-icon" data-icon="market"></span> Isoko</a>
+        <a href="about.html"><span class="ui-icon" data-icon="info"></span> About Us</a>
+        <a href="login.html"><span class="ui-icon" data-icon="login"></span> Injira</a>
+      </nav>
+      <div class="footer-contact">
+        <h4><span class="ui-icon" data-icon="mail"></span> Contact</h4>
+        <a href="mailto:kanezaishi@gmail.com"><span class="ui-icon" data-icon="mail"></span> kanezaishi@gmail.com</a>
+        <p>Ushaka chat cyangwa ubufasha, twohereze email.</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
+  </footer>
+
+  <script src="js/notify.js"></script>
   <script src="js/auth.js"></script>
 </body>
 </html>

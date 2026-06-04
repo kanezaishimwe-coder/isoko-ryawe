@@ -10,14 +10,20 @@ body {
               url("js/assets/bg-image.png") center/cover fixed no-repeat;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: flex-start;
+  padding: 20px 20px 0;
 }
 
 .login-container {
   width: 100%;
   max-width: 420px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .login-card {
@@ -108,4 +114,8 @@ body {
 
 .back-home {
   margin-top: 10px;
+}
+
+.footer {
+  width: 100%;
 }

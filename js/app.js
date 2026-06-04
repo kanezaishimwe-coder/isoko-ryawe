@@ -5,7 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginLink = document.getElementById("lnk-login");
   
   if (currentUser && loginLink) {
-    loginLink.innerText = currentUser.role === "producer" ? "Farmer Panel" : "Client Panel";
-    loginLink.href = currentUser.role === "producer" ? "producer-dashboard.html" : "client-dashboard.html";
+    if (currentUser.role === "admin") {
+      loginLink.innerText = "🛡️ Admin Dashboard";
+      loginLink.href = "admin-dashboard.html";
+    } else if (currentUser.role === "producer") {
+      loginLink.innerText = "👩‍🌾 Farmer Panel";
+      loginLink.href = "producer-dashboard.html";
+    } else {
+      loginLink.innerText = "🧑‍💼 Client Panel";
+      loginLink.href = "profile.html";
+    }
   }
 });

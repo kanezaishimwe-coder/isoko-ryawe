@@ -21,6 +21,7 @@
     .btn-back { display: inline-block; margin-top: 24px; color: #2e7d32; text-decoration: none; font-weight: bold; }
     @media (max-width: 700px) { body { padding: 20px; } .details-card { padding: 24px; } }
   </style>
+  <link rel="stylesheet" href="site-theme.css">
 </head>
 <body>
   <div class="details-card">
@@ -30,63 +31,63 @@
     <p><strong>Ingano Ihari:</strong> <span id="detQty">-</span></p>
     <p><strong>Akarere/Aho Biherereye:</strong> <span id="detLoc">-</span></p>
     <p><strong>Uko product yitaweho / Umwihariko:</strong> <span id="detCare">Ihinganywe ifumbire y'imborera kandi isaruye mu buryo bw'umwimerere.</span></p>
-    
+
     <div class="contact-box">
       <h3>Vugana n'Umuhinzi Ako Kanya:</h3>
-      <a href="#" id="waLink" target="_blank" class="btn-action btn-wa">💬 Chat na we kuri WhatsApp</a>
-      <a href="#" id="callLink" class="btn-action btn-call">📞 Hamagara Terefone</a>
+      <a href="#" id="waLink" target="_blank" class="btn-action btn-wa">Chat na we kuri WhatsApp</a>
+      <a href="#" id="callLink" class="btn-action btn-call">Hamagara Terefone</a>
     </div>
-    
-    <a href="market.html" class="btn-back">← Subira ku Isoko</a>
+
+    <a href="market.html" class="btn-back">Subira ku Isoko</a>
   </div>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>IsokoRyawe</h3>
+        <p>Guhuza abahinzi, abaguzi, n'abacunga sisitemu mu buryo bworoshye.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html"><span class="ui-icon" data-icon="home"></span> Ahabanza</a>
+        <a href="market.html"><span class="ui-icon" data-icon="market"></span> Isoko</a>
+        <a href="about.html"><span class="ui-icon" data-icon="info"></span> About Us</a>
+        <a href="login.html"><span class="ui-icon" data-icon="login"></span> Injira</a>
+      </nav>
+      <div class="footer-contact">
+        <h4><span class="ui-icon" data-icon="mail"></span> Contact</h4>
+        <a href="mailto:kanezaishi@gmail.com"><span class="ui-icon" data-icon="mail"></span> kanezaishi@gmail.com</a>
+        <p>Ushaka chat cyangwa ubufasha, twohereze email.</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
+  </footer>
+
+  <script src="js/ui-icons.js"></script>
+  <script src="js/products.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const params = new URLSearchParams(window.location.search);
-        const id = parseInt(params.get('id'));
-        
-        const defaultProducts = [
-          { id: 1, name: "🥔 Ibirayi by'Ikinigi", price: 450, qty: "500 Kg", location: "Musanze", phone: "0788123456" },
-          { id: 2, name: "🥛 Amata Inyange", price: 700, qty: "200 Liters", location: "Nyagatare", phone: "0788654321" },
-          { id: 3, name: "🍅 Inyanya Nshya", price: 600, qty: "120 Kg", location: "Rwamagana", phone: "0785111222" },
-          { id: 4, name: "🍌 Imineke Kamparampaka", price: 350, qty: "400 Kg", location: "Rubavu", phone: "0783444555" }
-        ];
-        
-        const customProducts = JSON.parse(localStorage.getItem("farmProducts")) || [];
-        const allProducts = [...defaultProducts, ...customProducts];
-        const prod = allProducts.find(p => p.id === id) || defaultProducts[0];
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"), 10);
+      const customProducts = JSON.parse(localStorage.getItem("farmProducts")) || [];
+      const allProducts = [...defaultProducts, ...customProducts];
+      const prod = allProducts.find((item) => item.id === id) || allProducts[0];
 
-        function getImageFromName(name) {
-          const n = (name || "").toLowerCase();
-          if (n.includes("amagi")) return "js/assets/amagi.png";
-          if (n.includes("amata")) return "js/assets/amata.png";
-          if (n.includes("inyanya")) return "js/assets/inyanya.png";
-          if (n.includes("imineke")) return "js/assets/imineke.png";
-          if (n.includes("dodo")) return "js/assets/dodo.png";
-          if (n.includes("avoka")) return "js/assets/avoka.png";
-          if (n.includes("umuceri")) return "js/assets/umuceri.png";
-          if (n.includes("ibirayi")) return "js/assets/umuceri.png";
-          return "js/assets/umuceri.png";
-        }
+      document.getElementById("detName").innerText = prod.name;
+      document.getElementById("detPrice").innerText = prod.price;
+      document.getElementById("detQty").innerText = prod.qty;
+      document.getElementById("detLoc").innerText = prod.location;
+      if (prod.care) document.getElementById("detCare").innerText = prod.care;
 
-        document.getElementById("detName").innerText = prod.name;
-        document.getElementById("detPrice").innerText = prod.price;
-        document.getElementById("detQty").innerText = prod.qty;
-        document.getElementById("detLoc").innerText = prod.location;
-        if (prod.care) document.getElementById("detCare").innerText = prod.care;
+      const detImage = document.getElementById("detImage");
+      if (detImage) {
+        detImage.src = prod.image || "js/assets/umuceri.png";
+      }
 
-        const detImage = document.getElementById("detImage");
-        if (detImage) {
-          detImage.src = prod.image || getImageFromName(prod.name);
-        }
+      const cleanPhone = String(prod.phone || "").replace(/[^0-9]/g, "");
+      const rwPhone = cleanPhone.startsWith("07") ? "250" + cleanPhone.slice(1) : cleanPhone;
 
-        
-        // WhatsApp & Call links setup
-        const cleanPhone = prod.phone.replace(/[^0-9]/g, "");
-        const rwPhone = cleanPhone.startsWith("07") ? "250" + cleanPhone.substr(1) : cleanPhone;
-        
-        document.getElementById("waLink").href = `https://wa.me/${rwPhone}?text=Muraho,%20nshaka%20kugura%20${encodeURIComponent(prod.name)}%20twabonye%20kuri%20IsokoRyawe.`;
-        document.getElementById("callLink").href = `tel:${prod.phone}`;
+      document.getElementById("waLink").href = `https://wa.me/${rwPhone}?text=Muraho,%20nshaka%20kugura%20${encodeURIComponent(prod.name)}%20twabonye%20kuri%20IsokoRyawe.`;
+      document.getElementById("callLink").href = `tel:${prod.phone}`;
     });
   </script>
 </body>

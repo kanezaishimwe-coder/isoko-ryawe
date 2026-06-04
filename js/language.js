@@ -1,77 +1,156 @@
-const translations = {
-  rw: {
-    "lnk-home": "Ahabanza",
-    "lnk-market": "Sura Isoko",
-    "lnk-login": "Injira",
-    "hero-title": "Umusaruro wawe, Isoko ryawe",
-    "hero-desc": "Gahuza abahinzi n'aborozi bo mu cyaro n'abaguzi ako kanya. Gura umusaruro utoshye, muhamagare cyangwa muvugane kuri WhatsApp nta bakomiseri.",
-    "btn-register-cta": "Tangira Kwandikisha Konti",
-    "btn-market-cta": "Sura Isoko Ryacu",
-    "cat-title": "Ibyiciro by'Umusaruro",
-    "cat-farming": "Ibiribwa n'Imboga",
-    "cat-livestock": "Ibirorwaho n'Amatungo",
-    "cat-fruits": "Imbuto Zitoshye"
-  },
-  en: {
-    "lnk-home": "Home",
-    "lnk-market": "Visit Market",
-    "lnk-login": "Login",
-    "hero-title": "Your Harvest, Your Market",
-    "hero-desc": "Connecting rural farmers and livestock breeders directly to buyers. Buy fresh products, call them, or chat via WhatsApp with no middlemen.",
-    "btn-register-cta": "Get Registered Now",
-    "btn-market-cta": "Browse Marketplace",
-    "cat-title": "Produce Categories",
-    "cat-farming": "Crops & Vegetables",
-    "cat-livestock": "Livestock & Animal Products",
-    "cat-fruits": "Fresh Fruits"
-  },
-  fr: {
-    "lnk-home": "Accueil",
-    "lnk-market": "Le Marché",
-    "lnk-login": "Connexion",
-    "hero-title": "Votre Récolte, Votre Marché",
-    "hero-desc": "Connecter directement les agriculteurs et éleveurs ruraux avec les acheteurs. Achetez frais, appelez ou discutez sur WhatsApp sans intermédiaires.",
-    "btn-register-cta": "Créer un compte",
-    "btn-market-cta": "Visiter le Marché",
-    "cat-title": "Catégories de Produits",
-    "cat-farming": "Cultures & Légumes",
-    "cat-livestock": "Élevage & Produits Animaux",
-    "cat-fruits": "Fruits Frais"
-  },
-  sw: {
-    "lnk-home": "Nyumbani",
-    "lnk-market": "Sokoni",
-    "lnk-login": "Ingia",
-    "hero-title": "Mavuno Yako, Soko Lako",
-    "hero-desc": "Kuunganisha wakulima na wafugaji wa vijijini moja kwa moja na wanunuzi. Nunua mazao mabichi, piga simu au chat kupitia WhatsApp bila madalali.",
-    "btn-register-cta": "Jisajili Sasa",
-    "btn-market-cta": "Angalia Soko",
-    "cat-title": "Jamii za Mazao",
-    "cat-farming": "Mazao na Mboga",
-    "cat-livestock": "Mifugo na Bidhaa za Wanyama",
-    "cat-fruits": "Matunda Mabichi"
-  }
-};
+/*
+  Simple i18n engine for IsokoRyawe.
 
-function switchLanguage(lang) {
-  localStorage.setItem("isokoLang", lang);
-  applySavedLanguage();
-}
+  Usage:
+    - Add data-i18n="some.key" to any element you want translated.
+    - Use <select onchange="switchLanguage(this.value)">...
 
-function applySavedLanguage() {
-  const currentLang = localStorage.getItem("isokoLang") || "rw";
-  const selectElem = document.getElementById("languageSelect");
-  if(selectElem) selectElem.value = currentLang;
+  This file was created because pages already call switchLanguage(...)
+  but js/language.js was missing in the repo.
+*/
 
-  const dict = translations[currentLang];
-  for (const key in dict) {
-    const element = document.getElementById(key);
-    if (element) {
-      element.innerText = dict[key];
+(function () {
+  const STORAGE_KEY = "isokoLanguage";
+
+  const DICTIONARY = {
+    rw: {
+      // Navbar
+      "nav.home": "🏠 Ahabanza",
+      "nav.market": "🛒 Sura Isoko",
+      "nav.about": "ℹ️ About Us",
+      "nav.login": "🔐 Injira",
+      "nav.logout": "🚪 Sohokamo",
+      "nav.dashboard": "🛡️ Admin Dashboard",
+      "nav.farmer": "👩‍🌾 Farmer Panel",
+      "nav.profile": "👤 Umwirondoro",
+
+      // Common pages
+      "footer.about": "About Us",
+      "footer.login": "Injira",
+      "footer.home": "Ahabanza",
+      "footer.market": "Isoko",
+
+      // Index
+      "index.title": "Impamvu guhitamo IsokoRyawe",
+      "index.feature1": "⚡ Byoroshye kandi bwihuse",
+      "index.feature1.desc": "Ongeramo umusaruro wawe mu masaha make, kandi abaguzi bazawubona mu buryo bwihuta.",
+      "index.feature2": "🤝 Nta bakomiseri",
+      "index.feature2.desc": "Ucuruza neza ku buryo butaziguye, uhitemo uburyo bwo kuvugana kuri WhatsApp cyangwa guhamagara.",
+      "index.feature3": "🛡️ Amakuru yizewe",
+      "index.feature3.desc": "Abaguzi babona ibisobanuro birambuye ku musaruro, aho uherereye, ndetse n'amafoto yizewe.",
+      "index.process": "Uko bikorwa",
+      "index.step1": "✍️ Iyandikishe",
+      "index.step1.desc": "Fungura konti yawe mu buryo bwihuse kandi butekanye kugira ngo utangire kwerekana ibikorwa byawe.",
+      "index.step2": "📦 Tangira gusangiza",
+      "index.step2.desc": "Shyiraho ibicuruzwa byawe, amafoto y'ubwiza, ibiciro n'ubusobanuro bwuzuye.",
+      "index.step3": "💬 Vugana n'abaguzi",
+      "index.step3.desc": "Abaguzi bashobora kukuvugisha kuri WhatsApp cyangwa kukuhamagara kugirango muzungurane amakuru y'ibicuruzwa."
+    },
+    en: {
+      // Navbar
+      "nav.home": "🏠 Home",
+      "nav.market": "🛒 Browse Marketplace",
+      "nav.about": "ℹ️ About Us",
+      "nav.login": "🔐 Login",
+      "nav.logout": "🚪 Logout",
+      "nav.dashboard": "🛡️ Admin Dashboard",
+      "nav.farmer": "👩‍🌾 Farmer Panel",
+      "nav.profile": "👤 Profile",
+
+      // Common pages
+      "footer.about": "About Us",
+      "footer.login": "Login",
+      "footer.home": "Home",
+      "footer.market": "Market",
+
+      // Index
+      "index.title": "Why choose IsokoRyawe",
+      "index.feature1": "⚡ Easy & fast",
+      "index.feature1.desc": "Add your produce in minutes and buyers can find it instantly.",
+      "index.feature2": "🤝 No middlemen",
+      "index.feature2.desc": "Sell directly and choose how to communicate: WhatsApp or call.",
+      "index.feature3": "🛡️ Trusted information",
+      "index.feature3.desc": "Buyers see detailed produce info, location, and real photos.",
+      "index.process": "How it works",
+      "index.step1": "✍️ Register",
+      "index.step1.desc": "Open your account quickly and securely to start listing your products.",
+      "index.step2": "📦 Start listing",
+      "index.step2.desc": "Add your products, quality photos, price, and full description.",
+      "index.step3": "💬 Talk to buyers",
+      "index.step3.desc": "Buyers can message you on WhatsApp or call to share order details."
+    },
+    fr: {
+      "nav.home": "🏠 Accueil",
+      "nav.market": "🛒 Marché",
+      "nav.about": "ℹ️ À propos",
+      "nav.login": "🔐 Connexion",
+      "nav.logout": "🚪 Déconnexion",
+      "nav.dashboard": "🛡️ Tableau admin",
+      "nav.farmer": "👩‍🌾 Espace producteur",
+      "nav.profile": "👤 Profil"
+    },
+    sw: {
+      "nav.home": "🏠 Mwanzo",
+      "nav.market": "🛒 Soko",
+      "nav.about": "ℹ️ Kuhusu",
+      "nav.login": "🔐 Ingia",
+      "nav.logout": "🚪 Toka",
+      "nav.dashboard": "🛡️ Dashibodi ya Admin",
+      "nav.farmer": "👩‍🌾 Jopo la Mkulima",
+      "nav.profile": "👤 Wasifu"
     }
-  }
-}
+  };
 
-document.addEventListener("DOMContentLoaded", () => {
-  applySavedLanguage();
-});
+  function normalizeLang(lang) {
+    const l = String(lang || "").toLowerCase();
+    if (DICTIONARY[l]) return l;
+    if (l.startsWith("rw")) return "rw";
+    if (l.startsWith("en")) return "en";
+    if (l.startsWith("fr")) return "fr";
+    if (l.startsWith("sw")) return "sw";
+    return "rw";
+  }
+
+  function applyLanguage(lang) {
+    const code = normalizeLang(lang);
+    const dict = DICTIONARY[code] || DICTIONARY.rw;
+
+    const nodes = document.querySelectorAll("[data-i18n]");
+    nodes.forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+
+      const value = dict[key];
+      if (typeof value === "string" && value.length > 0) {
+        el.textContent = value;
+      }
+    });
+
+    // If there are elements where full HTML is required, add data-i18n-html later.
+  }
+
+  function syncLanguageSelect(lang) {
+    const sel = document.getElementById("languageSelect");
+    if (!sel) return;
+    const code = normalizeLang(lang);
+    sel.value = code;
+  }
+
+  function switchLanguage(lang) {
+    const code = normalizeLang(lang);
+    localStorage.setItem(STORAGE_KEY, code);
+    syncLanguageSelect(code);
+    applyLanguage(code);
+  }
+
+  // Expose globally for inline onchange="switchLanguage(...)"
+  window.switchLanguage = switchLanguage;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    const lang = stored || document.documentElement.getAttribute("lang") || "rw";
+    syncLanguageSelect(lang);
+    applyLanguage(lang);
+  });
+})();
+

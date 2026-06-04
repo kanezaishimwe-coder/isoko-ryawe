@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-    if(user && user.role === "producer") {
-        document.getElementById("farmerName").innerText = user.name;
-    } else if(!user) {
-        window.location.href = "login.html";
+    const auth = window.IsokoAuth;
+    const user = auth ? auth.requireActiveSession(["producer"], "login.html") : JSON.parse(localStorage.getItem("currentUser"));
+    if (!user || user.role !== "producer") {
+        return;
     }
+
+    document.getElementById("farmerName").innerText = user.name;
 
     function setProductError(inputId, message) {
         const el = document.getElementById(inputId);
@@ -91,8 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnLogout = document.getElementById("btnLogout");
     if (btnLogout) {
         btnLogout.addEventListener("click", () => {
-            localStorage.removeItem("currentUser");
-            window.location.href = "index.html";
+            if (window.IsokoAuth) {
+                window.IsokoAuth.clearCurrentUser();
+            } else {
+                localStorage.removeItem("currentUser");
+            }
+            window.location.href = "login.html";
         });
     }
 });

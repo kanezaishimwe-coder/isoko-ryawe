@@ -5,47 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IsokoRyawe | Umwirondoro</title>
   <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="site-theme.css">
 </head>
 <body>
   <header class="navbar">
     <div class="logo">🛒 Isoko<span>Ryawe</span></div>
     <nav class="nav-links">
-      <a href="index.html">Ahabanza</a>
-      <a href="market.html">Isoko</a>
-      <a href="about.html" class="btn-about-nav">About Us</a>
-      <a href="profile.html" class="active">Umwirondoro</a>
+      <a href="index.html">🏠 Ahabanza</a>
+      <a href="market.html">🛒 Isoko</a>
+      <a href="about.html" id="lnk-about" class="btn-about-nav">ℹ️ About Us</a>
+      <a href="profile.html" class="active">👤 Umwirondoro</a>
     </nav>
   </header>
 
   <main class="profile-container">
     <div class="profile-card">
-      <div class="avatar-placeholder">🧑‍🌾</div>
+      <div class="avatar-placeholder">👤</div>
       <h2 id="profName">-</h2>
       <p id="profEmail">-</p>
       <p id="profPhone" style="margin-bottom: 15px; font-weight: 500;">-</p>
       <span class="badge" id="profRole">-</span>
       <hr>
-      <button onclick="logoutUser()" class="btn-logout">Sohoka muri Konti</button>
+      <button onclick="logoutUser()" class="btn-logout">🚪 Sohoka muri Konti</button>
     </div>
   </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🛒 IsokoRyawe</h3>
+        <p>Guhuza abahinzi, abaguzi, n'abacunga sisitemu mu buryo bworoshye.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html"><span class="ui-icon" data-icon="home"></span> Ahabanza</a>
+        <a href="market.html"><span class="ui-icon" data-icon="market"></span> Isoko</a>
+        <a href="about.html"><span class="ui-icon" data-icon="info"></span> About Us</a>
+        <a href="login.html"><span class="ui-icon" data-icon="login"></span> Injira</a>
+      </nav>
+      <div class="footer-contact">
+        <h4><span class="ui-icon" data-icon="mail"></span> Contact</h4>
+        <a href="mailto:kanezaishi@gmail.com"><span class="ui-icon" data-icon="mail"></span> kanezaishi@gmail.com</a>
+        <p>Ushaka chat cyangwa ubufasha, twohereze email.</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
+  </footer>
+
+  <script src="js/notify.js"></script>
+  <script src="js/auth.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const user = JSON.parse(localStorage.getItem("currentUser"));
-        if(user) {
+        const auth = window.IsokoAuth;
+        const user = auth ? auth.requireActiveSession(["client", "producer", "admin"], "login.html") : JSON.parse(localStorage.getItem("currentUser"));
+        if (user) {
             document.getElementById("profName").innerText = user.name;
             document.getElementById("profEmail").innerText = user.email;
             document.getElementById("profPhone").innerText = "WhatsApp/Tel: " + user.phone;
-            document.getElementById("profRole").innerText = user.role === 'producer' ? 'Producer (Umuhinzi/Umworozi)' : 'Client (Umuguzi)';
-        } else {
-            window.location.href = "login.html";
+            document.getElementById("profRole").innerText = user.role === 'admin' ? 'Admin' : user.role === 'producer' ? 'Producer (Umuhinzi/Umworozi)' : 'Client (Umuguzi)';
         }
     });
 
     function logoutUser() {
-        localStorage.removeItem("currentUser");
-        alert("Muvuye muri system.");
-        window.location.href = "index.html";
+        if (window.IsokoAuth) {
+            window.IsokoAuth.clearCurrentUser();
+        } else {
+            localStorage.removeItem("currentUser");
+        }
+        if (window.IsokoNotify) {
+            window.IsokoNotify.info("Muvuye muri system.");
+        }
+        window.location.href = "login.html";
     }
   </script>
 </body>
