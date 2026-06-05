@@ -55,6 +55,16 @@
       <h3>Vugana n'Umuhinzi Ako Kanya:</h3>
       <a href="#" id="waLink" target="_blank" class="btn-action btn-wa">Chat na we kuri WhatsApp</a>
       <a href="#" id="callLink" class="btn-action btn-call">Hamagara Terefone</a>
+
+      <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" id="momoCopyBtn" style="padding: 14px; border-radius: 16px; font-weight: bold; border: none; cursor: pointer; background: #0b5fff; color: #fff;">
+          Kopia Momocode
+        </button>
+        <input type="text" id="momoCodeInput" readonly style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #d9d9d9; background: #fff;" />
+        <button type="button" id="momoPayBtn" style="padding: 14px; border-radius: 16px; font-weight: bold; border: none; cursor: pointer; background: #111; color: #fff;">
+          WhatsApp yoherereze ubwishyu
+        </button>
+      </div>
     </div>
 
     <a href="market.html" class="btn-back">Subira ku Isoko</a>
@@ -108,6 +118,38 @@
 
       const cleanPhone = String(prod.phone || "").replace(/[^0-9]/g, "");
       const rwPhone = cleanPhone.startsWith("07") ? "250" + cleanPhone.slice(1) : cleanPhone;
+
+      const momoCode = "*182*8*1*123456#";
+
+      // Fill momo UI
+      const momoCodeInput = document.getElementById("momoCodeInput");
+      if (momoCodeInput) momoCodeInput.value = momoCode;
+
+      // Copy button
+      const momoCopyBtn = document.getElementById("momoCopyBtn");
+      if (momoCopyBtn && momoCodeInput) {
+        momoCopyBtn.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(momoCode);
+            if (window.IsokoNotify && typeof window.IsokoNotify.success === "function") {
+              window.IsokoNotify.success("Momocode kopiwe.");
+            } else {
+              alert("Momocode kopiwe.");
+            }
+          } catch (e) {
+            alert("Ntibyashobotse kopi. Kope witonze muri textbox.");
+          }
+        });
+      }
+
+      // Pay button -> WhatsApp with payment code
+      const momoPayBtn = document.getElementById("momoPayBtn");
+      if (momoPayBtn) {
+        momoPayBtn.addEventListener("click", () => {
+          const text = `Muraho,%20nshaka%20kugura%20${encodeURIComponent(prod.name)}.%20Momocode%20ni:%20${encodeURIComponent(momoCode)}.%20Niryoherezwa%20kandi%20ndashaka%20uko%20byakurikirana.`;
+          window.open(`https://wa.me/${rwPhone}?text=${text}`, "_blank");
+        });
+      }
 
       document.getElementById("waLink").href = `https://wa.me/${rwPhone}?text=Muraho,%20nshaka%20kugura%20${encodeURIComponent(prod.name)}%20twabonye%20kuri%20IsokoRyawe.`;
       document.getElementById("callLink").href = `tel:${prod.phone}`;
