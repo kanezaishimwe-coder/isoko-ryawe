@@ -17,8 +17,12 @@ const UI_ICONS = {
   home: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 10h2v10h6v-6h2v6h6V10h2z" fill="currentColor"/></svg>',
   info: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z" fill="currentColor"/></svg>',
   login: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17v-2h4v-2h-4V8l-6 4 6 5zm8-13H9a2 2 0 0 0-2 2v3h2V6h9v12H9v-3H7v3a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" fill="currentColor"/></svg>',
-  mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 3v9h16V8l-8 5z" fill="currentColor"/></svg>'
+  mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 3v9h16V8l-8 5z" fill="currentColor"/></svg>',
+  phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.6 3 3.9 5.3 6.9 6.9l2.3-2.3c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.7 0 1.2.5 1.2 1.2V21c0 .7-.5 1.2-1.2 1.2C10.1 22.2 1.8 13.9 1.8 3.2 1.8 2.5 2.3 2 3 2h3.2c.7 0 1.2.5 1.2 1.2 0 1.4.3 2.8.8 4.1.1.4 0 .9-.2 1.2L6.6 10.8z" fill="currentColor"/></svg>',
+  whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3 4 3c-1.1 0-2 .9-2 2v16l4-4h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="currentColor" opacity="0.25"/><path d="M12 2C6.5 2 2 6.4 2 12c0 1.9.5 3.7 1.4 5.2L2 22l5-1.4c1.5.9 3.3 1.4 5 1.4 5.5 0 10-4.4 10-10S17.5 2 12 2zm5.9 14.2c-.3.9-1.7 1.7-2.3 1.7-.6 0-1.3.1-2.5-.3-1.2-.4-2.6-1.6-3.4-2.6-.8-1-1.3-2.2-1-3.2.2-.7.7-1.4 1.1-1.5.4-.1.7 0 1 .7l.7 1.8c.1.3.1.5 0 .7-.1.2-.2.3-.4.5-.2.2-.3.4-.1.7.2.3.8 1.2 1.7 2 .9.7 1.7 1.1 2 .9.3-.2.4-.4.6-.6.2-.2.4-.2.7-.1l2 .9c.3.1.5.2.6.4.1.2.1.6-.1 1.1z" fill="currentColor"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.8a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 6.8z" fill="currentColor"/></svg>'
 };
+
 
 function applyUiIcons(root = document) {
   const nodes = root.querySelectorAll("[data-icon]");

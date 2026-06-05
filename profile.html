@@ -11,14 +11,24 @@
   <header class="navbar">
     <div class="logo">🛒 Isoko<span>Ryawe</span></div>
     <nav class="nav-links">
+
       <a href="index.html">🏠 Ahabanza</a>
       <a href="market.html">🛒 Isoko</a>
       <a href="about.html" id="lnk-about" class="btn-about-nav">ℹ️ About Us</a>
       <a href="profile.html" class="active">👤 Umwirondoro</a>
     </nav>
+    <div class="lang-selector">
+      <select id="languageSelect" onchange="switchLanguage(this.value)">
+        <option value="rw">Kinyarwanda</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="sw">Kiswahili</option>
+      </select>
+    </div>
   </header>
 
   <main class="profile-container">
+
     <div class="profile-card">
       <div class="avatar-placeholder">👤</div>
       <h2 id="profName">-</h2>
@@ -51,9 +61,13 @@
     <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
   </footer>
 
+  <script src="js/language.js"></script>
+  <script src="js/nav-common.js"></script>
   <script src="js/notify.js"></script>
   <script src="js/auth.js"></script>
+
   <script>
+
     document.addEventListener("DOMContentLoaded", () => {
         const auth = window.IsokoAuth;
         const user = auth ? auth.requireActiveSession(["client", "producer", "admin"], "login.html") : JSON.parse(localStorage.getItem("currentUser"));

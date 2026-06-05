@@ -32,7 +32,26 @@
     </div>
   </div>
 
+  <header class="navbar">
+    <div class="logo">🛒 Isoko<span>Ryawe</span></div>
+    <nav class="nav-links">
+      <a href="index.html" data-i18n="nav.home">🏠 Ahabanza</a>
+      <a href="market.html" data-i18n="nav.market">🛒 Sura Isoko</a>
+      <a href="about.html" class="btn-about-nav" data-i18n="nav.about">ℹ️ About Us</a>
+      <a href="login.html" class="active" data-i18n="nav.login">🔐 Injira</a>
+    </nav>
+    <div class="lang-selector">
+      <select id="languageSelect" onchange="switchLanguage(this.value)">
+        <option value="rw">Kinyarwanda</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="sw">Kiswahili</option>
+      </select>
+    </div>
+  </header>
+
   <footer class="footer">
+
     <div class="footer-inner">
       <div class="footer-brand">
         <h3>🛒 IsokoRyawe</h3>
@@ -53,7 +72,12 @@
     <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
   </footer>
 
+  <script src="js/language.js"></script>
+  <script src="js/nav-common.js"></script>
   <script src="js/notify.js"></script>
   <script src="js/auth.js"></script>
+
+
 </body>
 </html>
+

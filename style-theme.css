@@ -1,0 +1,48 @@
+:root {
+  --bg-color: #edf4ef;
+  --text-color: #1a1a1a;
+  --card-bg: rgba(255,255,255,0.96);
+  --nav-bg: rgba(26,26,26,0.95);
+  --footer-bg: #1a1a1a;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #0f1411;
+  --text-color: #eef7ee;
+  --card-bg: rgba(18, 26, 20, 0.82);
+  --nav-bg: rgba(10, 14, 12, 0.95);
+  --footer-bg: #070a08;
+}
+
+/* Apply variables where possible */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+:root[data-theme="dark"] body {
+  background-image: none !important;
+}
+
+
+.navbar {
+  background-color: var(--nav-bg);
+  color: #fff;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+}
+
+.cat-card,
+.feature-card,
+.process-card,
+.highlight-card,
+.login-card,
+.register-card,
+.profile-card,
+.details-card {
+  background: var(--card-bg);
+}
+

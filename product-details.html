@@ -24,7 +24,26 @@
   <link rel="stylesheet" href="site-theme.css">
 </head>
 <body>
+  <header class="navbar">
+    <div class="logo">🛒 Isoko<span>Ryawe</span></div>
+    <nav class="nav-links">
+      <a href="index.html" data-i18n="nav.home">🏠 Ahabanza</a>
+      <a href="market.html" data-i18n="nav.market">🛒 Sura Isoko</a>
+      <a href="about.html" class="btn-about-nav" data-i18n="nav.about">ℹ️ About Us</a>
+      <a href="login.html" data-i18n="nav.login">🔐 Injira</a>
+    </nav>
+    <div class="lang-selector">
+      <select id="languageSelect" onchange="switchLanguage(this.value)">
+        <option value="rw">Kinyarwanda</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="sw">Kiswahili</option>
+      </select>
+    </div>
+  </header>
+
   <div class="details-card">
+
     <img id="detImage" class="product-image" src="js/assets/umuceri.png" alt="Ifoto ya product" />
     <h1 id="detName">-</h1>
     <p><strong>Igiciro:</strong> <span id="detPrice" class="highlight">-</span> RWF</p>
@@ -62,8 +81,12 @@
     <p class="footer-copy">&copy; 2026 IsokoRyawe. Made with 💚 in Rwanda.</p>
   </footer>
 
+  <script src="js/language.js"></script>
+  <script src="js/nav-common.js"></script>
   <script src="js/ui-icons.js"></script>
+
   <script src="js/products.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
