@@ -1,119 +1,14 @@
 /*
-  Simple i18n engine for IsokoRyawe.
-
-  Usage:
-    - Add data-i18n="some.key" to any element you want translated.
-    - Use <select onchange="switchLanguage(this.value)">...
-
-  This file was created because pages already call switchLanguage(...)
-  but js/language.js was missing in the repo.
+  language.js
+  Default language: English
 */
 
 (function () {
   const STORAGE_KEY = "isokoLanguage";
 
   const DICTIONARY = {
-    rw: {
-      // Home footer contact texts (index.html)
-      "footer.contactTitle": "Wasiliana",
-      "footer.contactEmailText": "kanezaishi@gmail.com",
-      "footer.contactWhatsappText": "0788206614",
-      "footer.contactInstagramText": "glory shema",
-      "footer.contactHint": "Ushaka chat cyangwa ubufasha, twohereze email.",
-
-      // Navbar
-      "nav.home": "🏠 Ahabanza",
-      "nav.market": "🛒 Sura Isoko",
-      "nav.about": "ℹ️ About Us",
-      "nav.login": "🔐 Injira",
-      "nav.logout": "🚪 Sohokamo",
-      "nav.dashboard": "🛡️ Admin Dashboard",
-      "nav.farmer": "👩‍🌾 Farmer Panel",
-      "nav.profile": "👤 Umwirondoro",
-
-      // Common pages
-      "footer.about": "About Us",
-      "footer.login": "Injira",
-      "footer.home": "Ahabanza",
-      "footer.market": "Isoko",
-
-      // Index
-      "index.title": "Impamvu guhitamo IsokoRyawe",
-      "index.feature1": "⚡ Byoroshye kandi bwihuse",
-      "index.feature1.desc": "Ongeramo umusaruro wawe mu masaha make, kandi abaguzi bazawubona mu buryo bwihuta.",
-      "index.feature2": "🤝 Nta bakomiseri",
-      "index.feature2.desc": "Ucuruza neza ku buryo butaziguye, uhitemo uburyo bwo kuvugana kuri WhatsApp cyangwa guhamagara.",
-      "index.feature3": "🛡️ Amakuru yizewe",
-      "index.feature3.desc": "Abaguzi babona ibisobanuro birambuye ku musaruro, aho uherereye, ndetse n'amafoto yizewe.",
-      "index.process": "Uko bikorwa",
-      "index.step1": "✍️ Iyandikishe",
-      "index.step1.desc": "Fungura konti yawe mu buryo bwihuse kandi butekanye kugira ngo utangire kwerekana ibikorwa byawe.",
-      "index.step2": "📦 Tangira gusangiza",
-      "index.step2.desc": "Shyiraho ibicuruzwa byawe, amafoto y'ubwiza, ibiciro n'ubusobanuro bwuzuye.",
-      "index.step3": "💬 Vugana n'abaguzi",
-      "index.step3.desc": "Abaguzi bashobora kukuvugisha kuri WhatsApp cyangwa kukuhamagara kugirango muzungurane amakuru y'ibicuruzwa."
-    },
     en: {
-      // Home footer contact texts (index.html)
-      "footer.contactTitle": "Contact",
-      "footer.contactEmailText": "kanezaishi@gmail.com",
-      "footer.contactWhatsappText": "0788206614",
-      "footer.contactInstagramText": "GLORY SHEMA",
-      "footer.contactHint": "Want chat or help? Send us an email.",
-
-      // Footer (all pages)
-      "footer.contactFooterTitle": "Contact",
-      "footer.contactFooterEmailText": "kanezaishi@gmail.com",
-      "footer.contactFooterWhatsappText": "0788206614",
-      "footer.contactFooterInstagramText": "GLORY SHEMA",
-      "footer.contactFooterHint": "Want chat or help? Send us an email.",
-
-      // Market page
-      "market.heroTitle": "🛍️ Marketplace for daily products",
-      "market.heroDesc": "Connect buyers with small farmers and livestock breeders in a fast, reliable and affordable way. Search, browse and call them on WhatsApp.",
-      "market.chipVegetables": "Vegetables",
-      "market.chipPotatoes": "Potatoes",
-      "market.chipMilk": "Milk",
-      "market.chipFruits": "Fruits",
-      "market.chipBeans": "Beans",
-      "market.searchTitle": "🔎 Browse easy products from farmers",
-      "market.searchPlaceholder": "Search (Potatoes, Milk, Vegetables, Beans)...",
-      "market.filterDistrict": "District",
-      "market.filterFarmer": "Farmer",
-      "market.clearFilters": "Clear filters",
-
-      // Navbar already covered below
-      // Common pages
-      "footer.about": "About Us",
-      "footer.login": "Login",
-      "footer.home": "Home",
-      "footer.market": "Market",
-
-      // Index
-      "index.title": "Why choose IsokoRyawe",
-      "index.feature1": "⚡ Easy & fast",
-      "index.feature1.desc": "Add your produce in minutes and buyers can find it instantly.",
-      "index.feature2": "🤝 No middlemen",
-      "index.feature2.desc": "Sell directly and choose how to communicate: WhatsApp or call.",
-      "index.feature3": "🛡️ Trusted information",
-      "index.feature3.desc": "Buyers see detailed produce info, location, and real photos.",
-      "index.process": "How it works",
-      "index.step1": "✍️ Register",
-      "index.step1.desc": "Open your account quickly and securely to start listing your products.",
-      "index.step2": "📦 Start listing",
-      "index.step2.desc": "Add your products, quality photos, price, and full description.",
-      "index.step3": "💬 Talk to buyers",
-      "index.step3.desc": "Buyers can message you on WhatsApp or call to share order details.",
-
       // Navbar
-
-      "footer.contactEmailText": "kanezaishi@gmail.com",
-      "footer.contactWhatsappText": "0788206614",
-      "footer.contactInstagramText": "GLORY SHEMA",
-      "footer.contactHint": "Want chat or help? Send us an email.",
-
-      // Navbar
-
       "nav.home": "🏠 Home",
       "nav.market": "🛒 Browse Marketplace",
       "nav.about": "ℹ️ About Us",
@@ -123,126 +18,162 @@
       "nav.farmer": "👩‍🌾 Farmer Panel",
       "nav.profile": "👤 Profile",
 
-      // Common pages
-      "footer.about": "About Us",
-      "footer.login": "Login",
-      "footer.home": "Home",
-      "footer.market": "Market",
-
-      // Index
-      "index.title": "Why choose IsokoRyawe",
-      "index.feature1": "⚡ Easy & fast",
-      "index.feature1.desc": "Add your produce in minutes and buyers can find it instantly.",
-      "index.feature2": "🤝 No middlemen",
-      "index.feature2.desc": "Sell directly and choose how to communicate: WhatsApp or call.",
-      "index.feature3": "🛡️ Trusted information",
-      "index.feature3.desc": "Buyers see detailed produce info, location, and real photos.",
-      "index.process": "How it works",
-      "index.step1": "✍️ Register",
-      "index.step1.desc": "Open your account quickly and securely to start listing your products.",
-      "index.step2": "📦 Start listing",
-      "index.step2.desc": "Add your products, quality photos, price, and full description.",
-      "index.step3": "💬 Talk to buyers",
-      "index.step3.desc": "Buyers can message you on WhatsApp or call to share order details."
-    },
-
-    // Home footer contact texts (index.html)
-    // Added so footer contact changes when switching language.
-    // (Keys used via data-i18n="footer.contact..." in index.html)
-    //
-    // Note: applyLanguage uses data-i18n values only.
-    
-    
-    fr: {
-      // Home footer contact texts (index.html)
+      // Footer
       "footer.contactTitle": "Contact",
       "footer.contactEmailText": "kanezaishi@gmail.com",
       "footer.contactWhatsappText": "0788206614",
       "footer.contactInstagramText": "GLORY SHEMA",
-      "footer.contactHint": "Vous voulez discuter ou obtenir de l’aide ? Envoyez-nous un email.",
+      "footer.contactHint": "Want chat or help? Send us an email.",
 
+      // Index
+      "index.title": "Why choose IsokoRyawe",
+      "index.feature1": "⚡ Easy & Fast",
+      "index.feature1.desc":
+        "Add your produce in minutes and buyers can find it instantly.",
+      "index.feature2": "🤝 No Middlemen",
+      "index.feature2.desc":
+        "Sell directly and choose how to communicate: WhatsApp or call.",
+      "index.feature3": "🛡️ Trusted Information",
+      "index.feature3.desc":
+        "Buyers see detailed produce info, location and real photos.",
+      "index.process": "How It Works",
+      "index.step1": "✍️ Register",
+      "index.step1.desc":
+        "Create your account quickly and securely.",
+      "index.step2": "📦 Start Listing",
+      "index.step2.desc":
+        "Add products, prices, photos and descriptions.",
+      "index.step3": "💬 Talk to Buyers",
+      "index.step3.desc":
+        "Buyers can contact you through WhatsApp or phone calls."
+    },
+
+    rw: {
+      // Navbar
+      "nav.home": "🏠 Ahabanza",
+      "nav.market": "🛒 Sura Isoko",
+      "nav.about": "ℹ️ Ibyerekeye Twebwe",
+      "nav.login": "🔐 Injira",
+      "nav.logout": "🚪 Sohokamo",
+      "nav.dashboard": "🛡️ Admin Dashboard",
+      "nav.farmer": "👩‍🌾 Farmer Panel",
+      "nav.profile": "👤 Umwirondoro",
+
+      // Footer
+      "footer.contactTitle": "Wasiliana",
+      "footer.contactEmailText": "kanezaishi@gmail.com",
+      "footer.contactWhatsappText": "0788206614",
+      "footer.contactInstagramText": "GLORY SHEMA",
+      "footer.contactHint":
+        "Ushaka ubufasha cyangwa kuganira? Twohereze email.",
+
+      // Index
+      "index.title": "Impamvu wahitamo IsokoRyawe",
+      "index.feature1": "⚡ Byoroshye kandi Byihuse",
+      "index.feature1.desc":
+        "Shyiraho umusaruro wawe vuba kandi abaguzi bawubone ako kanya.",
+      "index.feature2": "🤝 Nta Bakomiseri",
+      "index.feature2.desc":
+        "Ucuruza neza ku buryo butaziguye.",
+      "index.feature3": "🛡️ Amakuru Yizewe",
+      "index.feature3.desc":
+        "Abaguzi babona ibisobanuro birambuye n'amafoto y'ukuri.",
+      "index.process": "Uko Bikora",
+      "index.step1": "✍️ Iyandikishe",
+      "index.step1.desc":
+        "Fungura konti yawe mu buryo bworoshye kandi butekanye.",
+      "index.step2": "📦 Tangira Gushyiraho Ibicuruzwa",
+      "index.step2.desc":
+        "Shyiraho ibiciro, amafoto n'ibisobanuro.",
+      "index.step3": "💬 Ganira n'Abaguzi",
+      "index.step3.desc":
+        "Abaguzi bashobora kukwandikira cyangwa kuguhamagara."
+    },
+
+    fr: {
       "nav.home": "🏠 Accueil",
       "nav.market": "🛒 Marché",
       "nav.about": "ℹ️ À propos",
       "nav.login": "🔐 Connexion",
       "nav.logout": "🚪 Déconnexion",
-      "nav.dashboard": "🛡️ Tableau admin",
-      "nav.farmer": "👩‍🌾 Espace producteur",
-      "nav.profile": "👤 Profil"
+      "nav.dashboard": "🛡️ Tableau Admin",
+      "nav.farmer": "👩‍🌾 Espace Producteur",
+      "nav.profile": "👤 Profil",
+
+      "footer.contactTitle": "Contact",
+      "footer.contactHint":
+        "Besoin d'aide ? Envoyez-nous un email."
     },
+
     sw: {
-      // Home footer contact texts (index.html)
-      "footer.contactTitle": "Wasiliana",
-      "footer.contactEmailText": "kanezaishi@gmail.com",
-      "footer.contactWhatsappText": "0788206614",
-      "footer.contactInstagramText": "GLORY SHEMA",
-      "footer.contactHint": "Unahitaji kuzungumza au usaidizi? Tutumie email.",
-
       "nav.home": "🏠 Mwanzo",
-
       "nav.market": "🛒 Soko",
       "nav.about": "ℹ️ Kuhusu",
       "nav.login": "🔐 Ingia",
       "nav.logout": "🚪 Toka",
       "nav.dashboard": "🛡️ Dashibodi ya Admin",
-      "nav.farmer": "👩‍🌾 Jopo la Mkulima",
-      "nav.profile": "👤 Wasifu"
+      "nav.farmer": "👩‍🌾 Paneli ya Mkulima",
+      "nav.profile": "👤 Wasifu",
+
+      "footer.contactTitle": "Wasiliana",
+      "footer.contactHint":
+        "Unahitaji msaada? Tutumie barua pepe."
     }
   };
 
   function normalizeLang(lang) {
     const l = String(lang || "").toLowerCase();
+
     if (DICTIONARY[l]) return l;
-    if (l.startsWith("rw")) return "rw";
     if (l.startsWith("en")) return "en";
+    if (l.startsWith("rw")) return "rw";
     if (l.startsWith("fr")) return "fr";
     if (l.startsWith("sw")) return "sw";
-    return "rw";
+
+    return "en"; // Default Language
   }
 
   function applyLanguage(lang) {
     const code = normalizeLang(lang);
-    const dict = DICTIONARY[code] || DICTIONARY.rw;
+    const dict = DICTIONARY[code];
 
-    // Translate: navbar + elements that are explicitly marked with data-i18n
-    // We keep page body translations from being auto-applied unless the element has data-i18n.
-    const nodes = document.querySelectorAll("header .nav-links [data-i18n], [data-i18n]");
-    nodes.forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (!key) return;
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.getAttribute("data-i18n");
 
-      const value = dict[key];
-      if (typeof value === "string" && value.length > 0) {
-        el.textContent = value;
+      if (dict[key]) {
+        element.textContent = dict[key];
       }
     });
 
-    // After applying, update document language attribute
-    document.documentElement.setAttribute("lang", code);
+    document.documentElement.lang = code;
   }
 
   function syncLanguageSelect(lang) {
-    const sel = document.getElementById("languageSelect");
-    if (!sel) return;
-    const code = normalizeLang(lang);
-    sel.value = code;
+    const select = document.getElementById("languageSelect");
+
+    if (select) {
+      select.value = normalizeLang(lang);
+    }
   }
 
-  function switchLanguage(lang) {
+  window.switchLanguage = function (lang) {
     const code = normalizeLang(lang);
+
     localStorage.setItem(STORAGE_KEY, code);
+
     syncLanguageSelect(code);
     applyLanguage(code);
-  }
-
-  // Expose globally for inline onchange="switchLanguage(...)"
-  window.switchLanguage = switchLanguage;
+  };
 
   document.addEventListener("DOMContentLoaded", () => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    const lang = stored || document.documentElement.getAttribute("lang") || "rw";
+    let lang = localStorage.getItem(STORAGE_KEY);
+
+    if (!lang) {
+      lang = "en"; // English is default
+      localStorage.setItem(STORAGE_KEY, lang);
+    }
+
     syncLanguageSelect(lang);
     applyLanguage(lang);
   });
 })();
-
