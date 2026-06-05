@@ -21,30 +21,29 @@
 
   <main class="market-main">
     <section class="market-hero">
-      <h2>🛍️ Isoko rirenzeho ry'ibicuruzwa bya buri munsi</h2>
-      <p>Guhuza abaguzi n'abahinzi bato n'aborozi mu buryo bwihuse, bwizewe kandi buhendutse. Shakisha, urebe, kandi uhamagare muri WhatsApp kare.</p>
+      <h2 data-i18n="market.heroTitle">🛍️ Isoko rirenzeho ry'ibicuruzwa bya buri munsi</h2>
+      <p data-i18n="market.heroDesc">Guhuza abaguzi n'abahinzi bato n'aborozi mu buryo bwihuse, bwizewe kandi buhendutse. Shakisha, urebe, kandi uhamagare muri WhatsApp kare.</p>
       <div class="filter-chips">
-
-        <span class="filter-chip">Imboga</span>
-        <span class="filter-chip">Ibirayi</span>
-        <span class="filter-chip">Amata</span>
-        <span class="filter-chip">Imbuto</span>
-        <span class="filter-chip">Ibishyimbo</span>
-      </div>be
+        <span class="filter-chip" data-i18n="market.chipVegetables">Imboga</span>
+        <span class="filter-chip" data-i18n="market.chipPotatoes">Ibirayi</span>
+        <span class="filter-chip" data-i18n="market.chipMilk">Amata</span>
+        <span class="filter-chip" data-i18n="market.chipFruits">Imbuto</span>
+        <span class="filter-chip" data-i18n="market.chipBeans">Ibishyimbo</span>
+      </div>
     </section>
 
     <div class="search-section">
-      <h2>🔎 Sura Umusaruro Utoshye w'Abahinzi</h2>
-      <input type="text" id="marketSearch" onkeyup="searchProducts()" placeholder="Shakisha (Ibirayi, Amata, Imineke, Ibishyimbo...)...">
+      <h2 data-i18n="market.searchTitle">🔎 Sura Umusaruro Utoshye w'Abahinzi</h2>
+      <input type="text" id="marketSearch" onkeyup="searchProducts()" placeholder="Shakisha (Ibirayi, Amata, Imineke, Ibishyimbo...)..." data-i18n="market.searchPlaceholder">
     </div>
 
-    <section class="market-filters" aria-label="Market filters">
+    <section class="market-filters" aria-label="Market filters" data-i18n-aria-label="market.clearFilters"
       <div class="filter-group">
-        <label for="districtSelect">Akarere</label>
+        <label for="districtSelect" data-i18n="market.filterDistrict">Akarere</label>
         <select id="districtSelect"></select>
       </div>
       <div class="filter-group">
-        <label for="farmerSelect">Umuhinzi</label>
+        <label for="farmerSelect" data-i18n="market.filterFarmer">Umuhinzi</label>
         <select id="farmerSelect"></select>
       </div>
       <button type="button" id="clearFilters" class="filter-reset">Sukura filters</button>

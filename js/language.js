@@ -14,6 +14,13 @@
 
   const DICTIONARY = {
     rw: {
+      // Home footer contact texts (index.html)
+      "footer.contactTitle": "Wasiliana",
+      "footer.contactEmailText": "kanezaishi@gmail.com",
+      "footer.contactWhatsappText": "0788206614",
+      "footer.contactInstagramText": "glory shema",
+      "footer.contactHint": "Ushaka chat cyangwa ubufasha, twohereze email.",
+
       // Navbar
       "nav.home": "🏠 Ahabanza",
       "nav.market": "🛒 Sura Isoko",
@@ -47,7 +54,66 @@
       "index.step3.desc": "Abaguzi bashobora kukuvugisha kuri WhatsApp cyangwa kukuhamagara kugirango muzungurane amakuru y'ibicuruzwa."
     },
     en: {
+      // Home footer contact texts (index.html)
+      "footer.contactTitle": "Contact",
+      "footer.contactEmailText": "kanezaishi@gmail.com",
+      "footer.contactWhatsappText": "0788206614",
+      "footer.contactInstagramText": "GLORY SHEMA",
+      "footer.contactHint": "Want chat or help? Send us an email.",
+
+      // Footer (all pages)
+      "footer.contactFooterTitle": "Contact",
+      "footer.contactFooterEmailText": "kanezaishi@gmail.com",
+      "footer.contactFooterWhatsappText": "0788206614",
+      "footer.contactFooterInstagramText": "GLORY SHEMA",
+      "footer.contactFooterHint": "Want chat or help? Send us an email.",
+
+      // Market page
+      "market.heroTitle": "🛍️ Marketplace for daily products",
+      "market.heroDesc": "Connect buyers with small farmers and livestock breeders in a fast, reliable and affordable way. Search, browse and call them on WhatsApp.",
+      "market.chipVegetables": "Vegetables",
+      "market.chipPotatoes": "Potatoes",
+      "market.chipMilk": "Milk",
+      "market.chipFruits": "Fruits",
+      "market.chipBeans": "Beans",
+      "market.searchTitle": "🔎 Browse easy products from farmers",
+      "market.searchPlaceholder": "Search (Potatoes, Milk, Vegetables, Beans)...",
+      "market.filterDistrict": "District",
+      "market.filterFarmer": "Farmer",
+      "market.clearFilters": "Clear filters",
+
+      // Navbar already covered below
+      // Common pages
+      "footer.about": "About Us",
+      "footer.login": "Login",
+      "footer.home": "Home",
+      "footer.market": "Market",
+
+      // Index
+      "index.title": "Why choose IsokoRyawe",
+      "index.feature1": "⚡ Easy & fast",
+      "index.feature1.desc": "Add your produce in minutes and buyers can find it instantly.",
+      "index.feature2": "🤝 No middlemen",
+      "index.feature2.desc": "Sell directly and choose how to communicate: WhatsApp or call.",
+      "index.feature3": "🛡️ Trusted information",
+      "index.feature3.desc": "Buyers see detailed produce info, location, and real photos.",
+      "index.process": "How it works",
+      "index.step1": "✍️ Register",
+      "index.step1.desc": "Open your account quickly and securely to start listing your products.",
+      "index.step2": "📦 Start listing",
+      "index.step2.desc": "Add your products, quality photos, price, and full description.",
+      "index.step3": "💬 Talk to buyers",
+      "index.step3.desc": "Buyers can message you on WhatsApp or call to share order details.",
+
       // Navbar
+
+      "footer.contactEmailText": "kanezaishi@gmail.com",
+      "footer.contactWhatsappText": "0788206614",
+      "footer.contactInstagramText": "GLORY SHEMA",
+      "footer.contactHint": "Want chat or help? Send us an email.",
+
+      // Navbar
+
       "nav.home": "🏠 Home",
       "nav.market": "🛒 Browse Marketplace",
       "nav.about": "ℹ️ About Us",
@@ -79,7 +145,22 @@
       "index.step3": "💬 Talk to buyers",
       "index.step3.desc": "Buyers can message you on WhatsApp or call to share order details."
     },
+
+    // Home footer contact texts (index.html)
+    // Added so footer contact changes when switching language.
+    // (Keys used via data-i18n="footer.contact..." in index.html)
+    //
+    // Note: applyLanguage uses data-i18n values only.
+    
+    
     fr: {
+      // Home footer contact texts (index.html)
+      "footer.contactTitle": "Contact",
+      "footer.contactEmailText": "kanezaishi@gmail.com",
+      "footer.contactWhatsappText": "0788206614",
+      "footer.contactInstagramText": "GLORY SHEMA",
+      "footer.contactHint": "Vous voulez discuter ou obtenir de l’aide ? Envoyez-nous un email.",
+
       "nav.home": "🏠 Accueil",
       "nav.market": "🛒 Marché",
       "nav.about": "ℹ️ À propos",
@@ -90,7 +171,15 @@
       "nav.profile": "👤 Profil"
     },
     sw: {
+      // Home footer contact texts (index.html)
+      "footer.contactTitle": "Wasiliana",
+      "footer.contactEmailText": "kanezaishi@gmail.com",
+      "footer.contactWhatsappText": "0788206614",
+      "footer.contactInstagramText": "GLORY SHEMA",
+      "footer.contactHint": "Unahitaji kuzungumza au usaidizi? Tutumie email.",
+
       "nav.home": "🏠 Mwanzo",
+
       "nav.market": "🛒 Soko",
       "nav.about": "ℹ️ Kuhusu",
       "nav.login": "🔐 Ingia",
@@ -115,7 +204,9 @@
     const code = normalizeLang(lang);
     const dict = DICTIONARY[code] || DICTIONARY.rw;
 
-    const nodes = document.querySelectorAll("[data-i18n]");
+    // Translate: navbar + elements that are explicitly marked with data-i18n
+    // We keep page body translations from being auto-applied unless the element has data-i18n.
+    const nodes = document.querySelectorAll("header .nav-links [data-i18n], [data-i18n]");
     nodes.forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (!key) return;
@@ -126,7 +217,8 @@
       }
     });
 
-    // If there are elements where full HTML is required, add data-i18n-html later.
+    // After applying, update document language attribute
+    document.documentElement.setAttribute("lang", code);
   }
 
   function syncLanguageSelect(lang) {
